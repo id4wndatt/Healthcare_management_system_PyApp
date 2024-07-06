@@ -1,0 +1,14 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Img/search-folder.png</file>
+    <file>Img/siderbar.png</file>
+    <file>Img/anvata.png</file>
+    <file>Img/BaoCaoThongKe.png</file>
+    <file>Img/CaiDat.png</file>
+    <file>Img/DanhSachDichVu.png</file>
+    <file>Img/DanhSachLichHen.png</file>
+    <file>Img/In.png</file>
+    <file>Img/ThongTinKhachHang.png</file>
+    <file>Img/trend-analysis-svgrepo-com.png</file>
+  </qresource>
+</RCC>
