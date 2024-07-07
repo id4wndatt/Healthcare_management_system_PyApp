@@ -20,7 +20,8 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: #FFFFFF;
-display: inline-block;</string>
+display: inline-block;
+color: rgb(0, 0, 0);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="widget" native="true">
@@ -54,7 +55,7 @@ display: inline-block;</string>
       <string>Đăng nhập</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -100,7 +101,7 @@ display: inline-block;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>60</x>
