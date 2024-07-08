@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>admin_window</class>
+ <widget class="QMainWindow" name="admin_window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1060</width>
-    <height>545</height>
+    <width>1145</width>
+    <height>656</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -260,10 +260,7 @@
     </item>
     <item row="0" column="1">
      <widget class="QWidget" name="widget_3" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="spacing">
-        <number>0</number>
-       </property>
+      <layout class="QGridLayout" name="gridLayout_4">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -276,7 +273,7 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
+       <item row="0" column="0">
         <widget class="QWidget" name="widget" native="true">
          <property name="minimumSize">
           <size>
@@ -388,10 +385,10 @@
          </layout>
         </widget>
        </item>
-       <item>
+       <item row="1" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>6</number>
          </property>
          <widget class="QWidget" name="page_main">
           <layout class="QGridLayout" name="gridLayout_3"/>
@@ -513,6 +510,15 @@
                <pointsize>12</pointsize>
               </font>
              </property>
+             <property name="currentSection">
+              <enum>QDateTimeEdit::DaySection</enum>
+             </property>
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
+             <property name="timeSpec">
+              <enum>Qt::LocalTime</enum>
+             </property>
             </widget>
            </item>
            <item row="0" column="5" colspan="3">
@@ -605,18 +611,6 @@
              </property>
             </widget>
            </item>
-           <item row="0" column="8">
-            <widget class="QLabel" name="label_14">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Ngày sinh: </string>
-             </property>
-            </widget>
-           </item>
            <item row="9" column="0" colspan="11">
             <widget class="QTableWidget" name="tbl_nv">
              <property name="font">
@@ -693,6 +687,9 @@
                <pointsize>12</pointsize>
               </font>
              </property>
+             <property name="displayFormat">
+              <string>d/M/yyyy</string>
+             </property>
             </widget>
            </item>
            <item row="5" column="1" colspan="8">
@@ -764,25 +761,6 @@
              <property name="text">
               <string>Trạng thái:</string>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="7" rowspan="3">
-            <widget class="QComboBox" name="cbb_gioitinh_nv">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <item>
-              <property name="text">
-               <string>Nam</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Nữ</string>
-              </property>
-             </item>
             </widget>
            </item>
            <item row="3" column="5" colspan="6">
@@ -863,6 +841,37 @@
              <item>
               <property name="text">
                <string>Quản lý</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="8">
+            <widget class="QLabel" name="label_14">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Ngày sinh: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="6" colspan="2">
+            <widget class="QComboBox" name="cbb_gioitinh_nv">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <item>
+              <property name="text">
+               <string>Nam</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nữ</string>
               </property>
              </item>
             </widget>
@@ -1038,18 +1047,6 @@
          </widget>
          <widget class="QWidget" name="page_lh">
           <layout class="QGridLayout" name="gridLayout_7">
-           <item row="3" column="3">
-            <widget class="QLabel" name="label_38">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Trạng thái: </string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_37">
              <property name="font">
@@ -1074,32 +1071,8 @@
              </property>
             </widget>
            </item>
-           <item row="4" column="4">
-            <widget class="QPushButton" name="btn_sua_lh">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Sửa</string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="5">
-            <widget class="QPushButton" name="btn_xoa_lh">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Xóa</string>
-             </property>
-            </widget>
-           </item>
            <item row="5" column="0" colspan="6">
-            <widget class="QTableWidget" name="tbl_dv_2">
+            <widget class="QTableWidget" name="tbl_lh">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -1116,12 +1089,27 @@
              </property>
             </widget>
            </item>
-           <item row="3" column="1" colspan="2">
-            <widget class="QDateEdit" name="date_lh">
+           <item row="4" column="4">
+            <widget class="QPushButton" name="btn_sua_lh">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Sửa</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLabel" name="label_38">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
               </font>
+             </property>
+             <property name="text">
+              <string>Trạng thái: </string>
              </property>
             </widget>
            </item>
@@ -1144,48 +1132,20 @@
              </item>
             </widget>
            </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="page_hd">
-          <layout class="QGridLayout" name="gridLayout_4">
-           <item row="6" column="0">
-            <widget class="QLabel" name="label_65">
+           <item row="4" column="5">
+            <widget class="QPushButton" name="btn_xoa_lh">
              <property name="font">
               <font>
-               <pointsize>12</pointsize>
+               <pointsize>10</pointsize>
               </font>
              </property>
              <property name="text">
-              <string>Tổng tiền</string>
+              <string>Xóa</string>
              </property>
             </widget>
            </item>
-           <item row="6" column="1">
-            <widget class="QLineEdit" name="txt_tongtien_hd">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="placeholderText">
-              <string>VND</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="2">
-            <widget class="QLabel" name="label_66">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Ngày giờ tạo: </string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="3">
-            <widget class="QDateTimeEdit" name="dateTimeEdit">
+           <item row="3" column="1" colspan="2">
+            <widget class="QDateTimeEdit" name="date_lh">
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -1203,45 +1163,19 @@
                <pointsize>12</pointsize>
               </font>
              </property>
-            </widget>
-           </item>
-           <item row="7" column="2">
-            <widget class="QLabel" name="label_68">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
+             <property name="displayFormat">
+              <string>d/M/yyyy hh:mm:ss</string>
              </property>
-             <property name="text">
-              <string>Số lượng: </string>
+             <property name="timeSpec">
+              <enum>Qt::LocalTime</enum>
              </property>
             </widget>
            </item>
-           <item row="7" column="0">
-            <widget class="QLabel" name="label_98">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Dịch vụ:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="0">
-            <widget class="QLabel" name="label_67">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>Mô tả: </string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_hd">
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="1" column="0" colspan="2">
             <widget class="QLabel" name="label_63">
              <property name="font">
               <font>
@@ -1253,70 +1187,31 @@
              </property>
             </widget>
            </item>
-           <item row="12" column="0" colspan="6">
-            <widget class="QTableWidget" name="tbl_hd">
-             <property name="font">
-              <font>
-               <pointsize>10</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-           <item row="10" column="1" colspan="3">
-            <widget class="QLineEdit" name="txt_mota_hd">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="placeholderText">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="1">
-            <widget class="QComboBox" name="cbb_dv_hdct">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="2">
-            <widget class="QLabel" name="label_64">
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_67">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
               </font>
              </property>
              <property name="text">
-              <string>Nhân viên: </string>
+              <string>Mô tả: </string>
              </property>
             </widget>
            </item>
-           <item row="7" column="3" colspan="2">
-            <widget class="QLineEdit" name="txt_soluong_hdct">
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_102">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
               </font>
              </property>
-             <property name="placeholderText">
-              <string/>
+             <property name="text">
+              <string>Trạng thái: </string>
              </property>
             </widget>
            </item>
-           <item row="4" column="3">
-            <widget class="QComboBox" name="cbb_nv_hd">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="1">
+           <item row="1" column="2">
             <widget class="QComboBox" name="cbb_kh_hd">
              <property name="font">
               <font>
@@ -1325,19 +1220,28 @@
              </property>
             </widget>
            </item>
-           <item row="11" column="3">
-            <widget class="QPushButton" name="btn_xoa_hd">
+           <item row="1" column="3">
+            <widget class="QLabel" name="label_64">
              <property name="font">
               <font>
-               <pointsize>10</pointsize>
+               <pointsize>12</pointsize>
               </font>
              </property>
              <property name="text">
-              <string>Xóa</string>
+              <string>Nhân viên:</string>
              </property>
             </widget>
            </item>
-           <item row="11" column="1">
+           <item row="1" column="4">
+            <widget class="QComboBox" name="cbb_nv_hd">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1" colspan="2">
             <widget class="QPushButton" name="btn_sua_hd">
              <property name="font">
               <font>
@@ -1349,12 +1253,169 @@
              </property>
             </widget>
            </item>
+           <item row="9" column="0" colspan="8">
+            <widget class="QTableWidget" name="tbl_hd">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QLineEdit" name="txt_tongtien_hd">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string>VND</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_65">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Tổng tiền</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QLabel" name="label_66">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Ngày giờ tạo: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QDateTimeEdit" name="date_hd">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="displayFormat">
+              <string>d/M/yyyy hh:mm:ss</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QLineEdit" name="txt_soluong_hdct">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLabel" name="label_68">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Số lượng: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QComboBox" name="cbb_dv_hdct">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_98">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Dịch vụ:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="2" colspan="3">
+            <widget class="QLineEdit" name="txt_mota_hd">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="placeholderText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="2" colspan="2">
+            <widget class="QComboBox" name="cbb_trangthai_hd">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <item>
+              <property name="text">
+               <string>Xác nhận</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Chờ xác nhận</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="8" column="4">
+            <widget class="QPushButton" name="btn_xoa_hd">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Xóa</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="page_bctk">
           <layout class="QGridLayout" name="gridLayout_6">
            <item row="0" column="0">
-            <widget class="QPushButton" name="btn_sua_hd_3">
+            <widget class="QPushButton" name="btn_tke">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
@@ -1366,7 +1427,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QPushButton" name="btn_sua_hd_2">
+            <widget class="QPushButton" name="btn_bc">
              <property name="font">
               <font>
                <pointsize>12</pointsize>
@@ -1378,7 +1439,7 @@
             </widget>
            </item>
            <item row="1" column="0" colspan="2">
-            <widget class="QTableWidget" name="tableWidget">
+            <widget class="QTableWidget" name="tbl_bctk">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -1387,7 +1448,7 @@
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QPushButton" name="btn_sua_hd_4">
+            <widget class="QPushButton" name="btn_xuatpdf">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -1490,9 +1551,7 @@
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="resource.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>btn_change</sender>
@@ -1507,22 +1566,6 @@
     <hint type="destinationlabel">
      <x>107</x>
      <y>297</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>btn_exit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>114</x>
-     <y>533</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>194</x>
-     <y>544</y>
     </hint>
    </hints>
   </connection>

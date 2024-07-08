@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 02, 2024 lúc 06:10 PM
+-- Thời gian đã tạo: Th7 08, 2024 lúc 04:31 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.0.30
 
@@ -34,6 +34,15 @@ CREATE TABLE `hcms_danhmuc_dichvu` (
   `dm_dv_trangthai` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hcms_danhmuc_dichvu`
+--
+
+INSERT INTO `hcms_danhmuc_dichvu` (`id`, `dm_dv_ten`, `dm_dv_mota`, `dm_dv_trangthai`) VALUES
+(1, 'Gói điều trị và chăm sóc bệnh tật', 'Các dịch vụ y tế và điều trị cho các bệnh lý cụ thể.', 1),
+(2, 'Gói khám sức khỏe định kỳ', 'Bao gồm các xét nghiệm và kiểm tra định kỳ để phát hiện sớm các vấn đề sức khỏe.', 1),
+(3, 'Gói dịch vụ chăm sóc sức khỏe cho người cao tuổi', 'Các dịch vụ chuyên biệt cho người cao tuổi, bao gồm cả chăm sóc tại nhà và khám sức khỏe định kỳ.', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +57,19 @@ CREATE TABLE `hcms_dichvu` (
   `dv_trangthai` tinyint(1) DEFAULT NULL,
   `dv_danhmuc_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hcms_dichvu`
+--
+
+INSERT INTO `hcms_dichvu` (`id`, `dv_ten`, `dv_dongia`, `dv_mota`, `dv_trangthai`, `dv_danhmuc_id`) VALUES
+(5, 'Khám và điều trị bệnh lý', 690000, 'Bao gồm các cuộc khám sức khỏe chi tiết, chẩn đoán và lựa chọn phương pháp điều trị phù hợp.', 1, 1),
+(6, 'Thuốc và liệu pháp điều trị', 490000, 'Bao gồm việc cung cấp thuốc điều trị, liệu pháp vật lý, liệu pháp phục hồi chức năng, và các liệu pháp khác như hóa trị, phẫu thuật nếu cần thiết.', 1, 1),
+(7, 'Xét nghiệm và chẩn đoán hình ảnh', 390000, 'Các loại xét nghiệm máu, xét nghiệm hóa sinh, siêu âm, chụp X-quang, MRI, CT-scan để xác định bệnh lý và theo dõi quá trình điều trị.', 1, 1),
+(8, 'Khám lâm sàng tổng quát', 290000, 'Đo huyết áp, Đo chiều cao, cân nặng, chỉ số BMI, Khám tim mạch, Khám hô hấp, Khám nội tiết, Khám tiêu hóa', 1, 2),
+(9, 'Tư vấn sức khỏe', 190000, 'Tư vấn về lối sống lành mạnh, Hướng dẫn cách phòng ngừa bệnh tật, Đánh giá và hướng dẫn các biện pháp cải thiện sức khỏe', 1, 2),
+(10, 'Khám và theo dõi bệnh lý mãn tính', 350000, 'Theo dõi và điều trị các bệnh mãn tính như tiểu đường, cao huyết áp, bệnh tim mạch, bệnh phổi mãn tính, Điều chỉnh và theo dõi việc sử dụng thuốc', 1, 3),
+(11, 'Phục hồi chức năng và vật lý trị liệu', 450000, 'Các chương trình phục hồi chức năng cho người bị đột quỵ, viêm khớp, thoái hóa khớp, Vật lý trị liệu để cải thiện khả năng vận động, giảm đau', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -65,6 +87,16 @@ CREATE TABLE `hcms_hoadon` (
   `hd_nhanvien_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hcms_hoadon`
+--
+
+INSERT INTO `hcms_hoadon` (`id`, `hd_tongtien`, `hd_ngaygiotao`, `hd_trangthai`, `hd_mota`, `hd_khachhang_id`, `hd_nhanvien_id`) VALUES
+(17, 290000, '2024-07-03 10:00:00', 1, 'Đo huyết áp, Đo chiều cao, cân nặng', 1, 2),
+(19, 390000, '2024-06-07 14:00:00', 1, 'Các loại xét nghiệm máu, xét nghiệm hóa sinh', 1, 2),
+(20, 1350000, '2024-07-07 09:00:00', 1, 'Các chương trình phục hồi chức năng cho người bị đột quỵ, viêm khớp, thoái hóa khớp', 1, 2),
+(21, 380000, '2024-08-07 09:00:00', 1, 'Tư vấn về lối sống lành mạnh, Hướng dẫn cách phòng ngừa bệnh tật, Đánh giá và hướng dẫn các biện pháp cải thiện sức khỏe', 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -77,6 +109,16 @@ CREATE TABLE `hcms_hoadon_chitiet` (
   `hdct_dichvu_id` int(11) DEFAULT NULL,
   `hdct_hoadon_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hcms_hoadon_chitiet`
+--
+
+INSERT INTO `hcms_hoadon_chitiet` (`id`, `hdct_soluong`, `hdct_dichvu_id`, `hdct_hoadon_id`) VALUES
+(10, 1, 8, 17),
+(12, 1, 7, 19),
+(13, 3, 11, 20),
+(14, 2, 9, 21);
 
 -- --------------------------------------------------------
 
@@ -94,6 +136,15 @@ CREATE TABLE `hcms_khachhang` (
   `kh_trangthai` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `hcms_khachhang`
+--
+
+INSERT INTO `hcms_khachhang` (`id`, `kh_hoten`, `kh_gioitinh`, `kh_sdt`, `kh_ngaysinh`, `kh_diachi`, `kh_trangthai`) VALUES
+(1, 'Đào Ngọc Bích', 0, '0846836449', '2004-09-27', 'Thái Bình', 1),
+(3, 'Bùi Ngọc Đức', 1, '0999888999', '2002-12-26', 'Hòa Bình', 1),
+(4, 'Nguyễn Thanh Tùng', 1, '0876394757', '2000-10-10', 'Thái Bình', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -102,11 +153,22 @@ CREATE TABLE `hcms_khachhang` (
 
 CREATE TABLE `hcms_lichhen` (
   `id` int(11) NOT NULL,
-  `lh_ngayhen` date DEFAULT NULL,
-  `lh_giohen` time DEFAULT NULL,
+  `lh_ngayhen` datetime DEFAULT NULL,
   `lh_trangthai` tinyint(1) DEFAULT NULL,
   `lh_khachhang_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hcms_lichhen`
+--
+
+INSERT INTO `hcms_lichhen` (`id`, `lh_ngayhen`, `lh_trangthai`, `lh_khachhang_id`) VALUES
+(11, '2024-07-04 12:00:00', 1, 1),
+(12, '2024-07-06 12:00:00', 0, 3),
+(13, '2024-07-07 09:00:00', 0, 1),
+(14, '2024-07-05 14:00:00', 0, 3),
+(15, '2024-07-06 13:01:00', 0, 3),
+(16, '2024-07-01 15:00:00', 0, 4);
 
 -- --------------------------------------------------------
 
@@ -121,11 +183,20 @@ CREATE TABLE `hcms_nhanvien` (
   `nv_sdt` varchar(10) DEFAULT NULL,
   `nv_ngaysinh` date DEFAULT NULL,
   `nv_diachi` varchar(255) DEFAULT NULL,
-  `nv_chucvu` varchar(255) DEFAULT NULL,
+  `nv_chucvu` tinyint(1) DEFAULT NULL,
   `nv_trangthai` tinyint(1) DEFAULT NULL,
   `nv_matkhau` varchar(255) DEFAULT NULL,
   `nv_quyen` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `hcms_nhanvien`
+--
+
+INSERT INTO `hcms_nhanvien` (`id`, `nv_hoten`, `nv_gioitinh`, `nv_sdt`, `nv_ngaysinh`, `nv_diachi`, `nv_chucvu`, `nv_trangthai`, `nv_matkhau`, `nv_quyen`) VALUES
+(1, 'Đàm Như Đạt', 1, '1', '2003-03-31', 'Sơn La', 0, 1, '1', 0),
+(2, 'Vũ Minh Chiến', 1, '0862539888', '2003-07-16', 'Hòa Bình', 0, 1, '1', 0),
+(10, 'Bùi Ngọc Đức', 1, '12', '2003-12-22', 'Hòa Bình', 1, 1, '1', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -187,43 +258,43 @@ ALTER TABLE `hcms_nhanvien`
 -- AUTO_INCREMENT cho bảng `hcms_danhmuc_dichvu`
 --
 ALTER TABLE `hcms_danhmuc_dichvu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_dichvu`
 --
 ALTER TABLE `hcms_dichvu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_hoadon`
 --
 ALTER TABLE `hcms_hoadon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_hoadon_chitiet`
 --
 ALTER TABLE `hcms_hoadon_chitiet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_khachhang`
 --
 ALTER TABLE `hcms_khachhang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_lichhen`
 --
 ALTER TABLE `hcms_lichhen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `hcms_nhanvien`
 --
 ALTER TABLE `hcms_nhanvien`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

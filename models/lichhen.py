@@ -2,14 +2,13 @@ from config import dbconnect
 
 
 class Lichhen:
-    def __init__(self, ngayhen, giohen, trangthai, khachhang):
+    def __init__(self, ngayhen, trangthai, khachhang):
         self.ngayhen = ngayhen
-        self.giohen = giohen
         self.trangthai = trangthai
         self.khachhang = khachhang
 
     @staticmethod
-    def get_all_app(self):
+    def get_all_app():
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
@@ -22,8 +21,8 @@ class Lichhen:
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
-        conn.cur.execute("INSERT INTO hcms_lichhen (lh_ngayhen, lh_giohen, lh_trangthai, lh_khachhang_id) VALUES (%s, "
-                         "%s, %s, %s)", (self.ngayhen, self.giohen, self.trangthai, self.khachhang))
+        conn.cur.execute("INSERT INTO hcms_lichhen (lh_ngayhen, lh_trangthai, lh_khachhang_id) VALUES (%s, "
+                         "%s, %s)", (self.ngayhen, self.trangthai, self.khachhang))
         conn.con.commit()
         conn.close_connect()
 
@@ -31,13 +30,13 @@ class Lichhen:
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
-        conn.cur.execute("UPDATE hcms_lichhen SET lh_ngayhen = %s, lh_giohen = %s, lh_trangthai = %s, lh_khachhang_id "
-                         "= %s WHERE id = %s", (self.ngayhen, self.giohen, self.trangthai, self.khachhang, id))
+        conn.cur.execute("UPDATE hcms_lichhen SET lh_ngayhen = %s, lh_trangthai = %s, lh_khachhang_id "
+                         "= %s WHERE id = %s", (self.ngayhen, self.trangthai, self.khachhang, id))
         conn.con.commit()
         conn.close_connect()
 
     @staticmethod
-    def delete_app(self):
+    def delete_app(id):
         conn = dbconnect.dbconfig()
         conn.connectdb()
 

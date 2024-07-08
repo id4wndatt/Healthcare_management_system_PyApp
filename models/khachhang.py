@@ -1,13 +1,21 @@
-from user import User
+
 from config import dbconnect
+from models.user import User
 
 
 class Khachhang(User):
-    def __init__(self, hoten, gioitinh, sdt, ngaysinh, diachi, trangthai):
-        super().__init__(hoten, gioitinh, sdt, ngaysinh, diachi, trangthai)
+    def __init__(self, hoten, gioitinh, sdt, ngaysinh, diachi, trangthai, matkhau=None):
+        super().__init__(hoten, gioitinh, sdt, ngaysinh, diachi, trangthai, matkhau)
+        self.hoten = hoten
+        self.gioitinh = gioitinh
+        self.sdt = sdt
+        self.ngaysinh = ngaysinh
+        self.diachi = diachi
+        self.trangthai = trangthai
+        self.matkhau = matkhau
 
     @staticmethod
-    def get_all_user(self):
+    def get_all_user():
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
@@ -16,16 +24,28 @@ class Khachhang(User):
         rs = conn.cur.fetchall()
         conn.close_connect()
         return rs
-
-    def create_user(self):
+    @staticmethod
+    def get_kh_name(kh_id):
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
-        conn.cur.execute("INSERT INTO hcms_khachhang(kh_hoten, kh_gioitinh, kh_sdt, kh_ngaysinh, kh_diachi, "
-                         "kh_trangthai) VALUES(%s, %s, %s, %s, %s)", (self.hoten, self.gioitinh, self.sdt,
-                                                                      self.ngaysinh, self.diachi, self.trangthai))
-        conn.con.commit()
+        conn.cur.execute("SELECT kh_hoten FROM hcms_khachhang WHERE id = %s", (kh_id,))
+        rs = conn.cur.fetchone()
         conn.close_connect()
+        return rs[0] if rs else None
+
+    def create_user(self):
+        conn = dbconnect.dbconfig()
+        try:
+            conn.connectdb()
+            query = ("INSERT INTO hcms_khachhang(kh_hoten, kh_gioitinh, kh_sdt, kh_ngaysinh, kh_diachi, kh_trangthai) "
+                     "VALUES(%s, %s, %s, %s, %s, %s)")
+            conn.cur.execute(query, (self.hoten, self.gioitinh, self.sdt, self.ngaysinh, self.diachi, self.trangthai))
+            conn.con.commit()
+        except Exception as e:
+            print(f"Error creating user: {e}")
+        finally:
+            conn.close_connect()
 
     def update_user(self, id):
         conn = dbconnect.dbconfig()
@@ -39,7 +59,7 @@ class Khachhang(User):
         conn.close_connect()
 
     @staticmethod
-    def delete_user(self, id):
+    def delete_user(id):
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
