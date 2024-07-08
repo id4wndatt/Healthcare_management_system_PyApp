@@ -10,7 +10,17 @@ class Dichvu:
         self.danhmuc = danhmuc
 
     @staticmethod
-    def get_all_services(self):
+    def get_dv_name(dv_id):
+        conn = dbconnect.dbconfig()
+        conn.connectdb()
+
+        conn.cur.execute("SELECT dv_ten FROM hcms_dichvu WHERE id = %s", (dv_id,))
+        rs = conn.cur.fetchone()
+        conn.close_connect()
+        return rs[0] if rs else None
+
+    @staticmethod
+    def get_all_services():
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
@@ -18,6 +28,16 @@ class Dichvu:
         rs = conn.cur.fetchall()
         conn.close_connect()
         return rs
+
+    @staticmethod
+    def get_dm_name(dm_id):
+        conn = dbconnect.dbconfig()
+        conn.connectdb()
+
+        conn.cur.execute("SELECT dm_dv_ten FROM hcms_danhmuc_dichvu WHERE id = %s", (dm_id,))
+        rs = conn.cur.fetchone()
+        conn.close_connect()
+        return rs[0] if rs else None
 
     def create_service(self):
         conn = dbconnect.dbconfig()
@@ -33,12 +53,13 @@ class Dichvu:
         conn.connectdb()
 
         conn.cur.execute("UPDATE hcms_dichvu SET dv_ten = %s, dv_dongia = %s, dv_mota = %s, dv_trangthai = %s, "
-                         "dv_danhmuc_id = %s WHERE id = %s", (self.ten, self.dongia, self.mota, self.trangthai, self.danhmuc, id))
+                         "dv_danhmuc_id = %s WHERE id = %s",
+                         (self.ten, self.dongia, self.mota, self.trangthai, self.danhmuc, id))
         conn.con.commit()
         conn.close_connect()
 
     @staticmethod
-    def delete_service(self, id):
+    def delete_service(id):
         conn = dbconnect.dbconfig()
         conn.connectdb()
 
